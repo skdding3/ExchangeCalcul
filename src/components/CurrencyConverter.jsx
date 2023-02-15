@@ -20,7 +20,6 @@ const CurrencyConverter = () => {
         axios
             .get("https://api.exchangerate-api.com/v4/latest/USD")
             .then((response) => {
-                // 초기값
                 setCurrencies(Object.keys(response.data.rates));
                 setFromCurrency("KRW");
                 setToCurrency(Object.keys(response.data.rates)[0]);
