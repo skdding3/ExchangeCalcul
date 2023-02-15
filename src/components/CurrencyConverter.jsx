@@ -5,6 +5,7 @@ import '../App.css'
 const CurrencyConverter = () => {
 
     // STATE
+
     const [currencies, setCurrencies] = useState([]);
     const [fromCurrency, setFromCurrency] = useState("");
     const [toCurrency, setToCurrency] = useState("");
@@ -19,8 +20,9 @@ const CurrencyConverter = () => {
         axios
             .get("https://api.exchangerate-api.com/v4/latest/USD")
             .then((response) => {
+                // 초기값
                 setCurrencies(Object.keys(response.data.rates));
-                setFromCurrency("USD");
+                setFromCurrency("KRW");
                 setToCurrency(Object.keys(response.data.rates)[0]);
                 setExchangeRate(response.data.rates[Object.keys(response.data.rates)[0]]);
             })
